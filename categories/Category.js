@@ -12,7 +12,7 @@ const Category = connection.define('categories', {
     }
 })
 
-Category.hasmany(Article);
+Category.hasMany(Article);
 
 Category.sync({ force: false })
     .then(() => { })
