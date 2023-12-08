@@ -14,12 +14,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <th>cat1</th>
-                        <th>cat1</th>
-                        <th>Del</th>
-                    </tr>
+                    <% category.forEach(category=> { %>
+                        <tr>
+                            <th>
+                                <%= category.id %>
+                            </th>
+                            <th>
+                                <%= category.title %>
+                            </th>
+                            <th>
+                                <%= category.slug %>
+                            </th>
+                            <th></th>
+                        </tr>
+                        <% }) %>
                 </tbody>
             </table>
         </div>
