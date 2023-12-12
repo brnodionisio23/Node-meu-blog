@@ -15,7 +15,7 @@ router.get('/admin/category/new', (req, res) => {
 
 router.post("/admin/category/saveCategory", (req, res) => {
     let title = req.body.inpCategory;
-    title == undefined ? res.redirect('/admin/category/new') : Category.create({
+    !title ? res.redirect('/admin/category/new') : Category.create({
         title: title,
         slug: slugify(title)
     }).then(() => {
