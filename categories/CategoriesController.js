@@ -23,4 +23,18 @@ router.post("/admin/category/saveCategory", (req, res) => {
     })
 })
 
+router.post('/admin/category/deleteCategory', (req, res) => {
+    console.log("Chamou")
+    let id = req.body.id;
+    Category.destroy({
+        where: {
+            id: id
+        }
+    }).then(() => {
+        res.redirect('/admin/category');
+    }).catch(err => {
+        console.log(err)
+    })
+})
+
 module.exports = router;
