@@ -19,12 +19,11 @@ router.post("/admin/category/saveCategory", (req, res) => {
         title: title,
         slug: slugify(title)
     }).then(() => {
-        res.redirect('/');
+        res.redirect('/category');
     })
 })
 
 router.post('/admin/category/deleteCategory', (req, res) => {
-    console.log("Chamou")
     let id = req.body.id;
     Category.destroy({
         where: {

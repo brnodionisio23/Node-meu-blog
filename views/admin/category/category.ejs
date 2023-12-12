@@ -28,7 +28,8 @@
                             </th>
                             <th>
                                 <button class="btn btn-warning">Editar</button>
-                                <form action="/admin/category/deleteCategory" method="POST" style="display: inline;">
+                                <form action="/admin/category/deleteCategory" method="POST" style="display: inline;"
+                                    onsubmit="confirmMsg(event, this, '<%= category.title %>')">
                                     <input type="hidden" name="id" value="<%= category.id %>">
                                     <button class="btn btn-danger">Deletar</button>
                                 </form>
@@ -38,4 +39,14 @@
                 </tbody>
             </table>
         </div>
+
+        <script>
+            function confirmMsg(event, form, categoryName) {
+                event.preventDefault();
+                let decision = window.confirm(`Você realmente quer deletar: ${categoryName}?`);
+                if (decision) {
+                    form.submit();
+                }
+            }
+        </script>
         <%- include('../../partials/footer.ejs') %>
