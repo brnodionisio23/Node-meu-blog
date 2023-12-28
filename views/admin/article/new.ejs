@@ -12,6 +12,14 @@
                         <input class="form-control" type="text" name="title" id=""
                             placeholder="Defina o titulo do artigo!"> <br>
                         <textarea name="body" class="form-control" placeholder="Escreva o artigo aqui!"></textarea> <br>
+                        <label for="">Categoria:</label>
+                        <select name="" id="" class="form-control">
+                            <% categories.forEach((category)=>{ %>
+                                <option value="<%= category.id %>">
+                                    <%= category.title %>
+                                </option>
+                                <% }) %>
+                        </select><br>
                         <button class="btn btn-success">Salvar</button>
                         <a class="btn btn-danger" href='/admin/category'>Voltar</a>
                     </form>
